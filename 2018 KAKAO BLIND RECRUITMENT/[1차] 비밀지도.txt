@@ -1,0 +1,30 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<string> solution(int n, vector<int> arr1, vector<int> arr2) {
+    vector<string> answer;
+    vector<int> arr3(n);
+    
+    for(int i=0; i<n; i++){
+        string ans = "";
+        
+        arr3[i] = arr1[i] | arr2[i];
+        
+        while(ans.size() != n){
+            if(arr3[i] % 2 == 0) {
+                ans += ' ';
+            } else {
+                ans += '#';
+            }
+            arr3[i] /= 2;
+        }
+        
+        reverse(ans.begin(), ans.end());
+        answer.push_back(ans);
+    }
+    
+    return answer;
+}
