@@ -1,0 +1,36 @@
+// https://programmers.co.kr/learn/courses/30/lessons/42746
+
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool compare(string a, string b) { 
+    if (a + b > b + a) {
+        return true;
+    } return false; 
+}
+
+
+string solution(vector<int> numbers) {
+    string answer = "";
+    vector<string> strvec;    
+    
+    for (int i = 0; i < numbers.size(); i++) {
+        strvec.push_back(to_string(numbers[i]));
+    }
+    
+    sort(strvec.begin(), strvec.end(), compare); 
+    
+    if (strvec[0] == "0") {
+        answer = "0";
+        return answer;
+    }
+    
+    for (int i = 0; i < strvec.size(); i++) {
+        answer += strvec[i];
+    }
+    
+    return answer;
+}
