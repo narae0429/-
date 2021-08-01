@@ -1,0 +1,23 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<int> citations) {
+    int answer = 0;
+    int h = 0;
+    
+    for(int i=0; i<10000; i++){
+        for(int j=0; j<citations.size(); j++){
+            if(citations[j]>=i){
+                h++;
+            }  
+            if(i==h){
+                answer = h;
+            }
+        }        
+        h = 0;
+    }   
+    
+    return answer;
+}
